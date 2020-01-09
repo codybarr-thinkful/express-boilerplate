@@ -1,6 +1,8 @@
 # Express Boilerplate!
 
-This is a boilerplate project used for starting new projects!
+This is a boilerplate project used for starting new Express / Postgres Projects.
+
+**Note: This project assumes that postgres is installed and running**
 
 ## Set up
 
@@ -12,6 +14,13 @@ Complete the following steps to start a new project (`my-new-project`):
 4. Install the node dependencies `yarn`
 5. Move the example Environment file to `.env` that will be ignored by git and read by the express server `mv example.env .env`
 6. Edit the contents of the `package.json` to use my-new-project instead of `"name": "express-boilerplate",`
+
+**Special Setup for Postgres User / Database**
+
+7. Run `createuser -Pw --interactive` and create a `blogger` user (update environment variables to use a different user if you'd like).
+8. Run `createdb -U blogger blog` and `createdb -U dunder_mifflin blog-test` to create the main and test databases.
+9. Run `yarn migrate && yarn migrate:test` to initialize/create the main and test databases and their tables (Note: migration files in the `/migrations` directory should be updated to suit your custom schema).
+10. Optionally run `yarn db:seed` if you'd like to add some basic blog posts to your main database.
 
 ## Scripts
 
